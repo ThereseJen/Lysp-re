@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyspære</title>
+<style>
+body {
+background-color: cadetblue;
+}
+   
+.container {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+margin-top: 50px;
+}
+
+.hus {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: flex-start;
+border: solid black;
+height: 400px;
+width: 600px;
+background: rgb(75,80,78);
+background: linear-gradient(90deg, rgba(75,80,78,0.9864320728291317) 17%, rgba(57,65,65,0.9864320728291317) 61%, rgba(52,68,68,1) 87%);
+}
+
+.lightBulb {
+height: 150px;
+width: 150px;
+border: solid black;
+border-radius: 40%;
+background-color: whitesmoke;
+margin-top: 60px;
+position: relative;
+}
+
+.lightBulb::before {
+content: '';
+position: absolute;
+top: 35px;
+left: 35px;
+width: 50px;
+height: 2px;
+background-color: black;
+transform: rotate(45deg);
+}
+
+.underBulb {
+border: solid black;
+width: 40px;
+height: 20px;
+background-color: silver;
+border-radius: 10% / 50%;
+}
+
+button{
+height: 50px;
+padding: 10px;
+margin-top: 20px;
+}
+
+.lysTekst {
+font-size: x-large;
+font-family: sans-serif;
+margin-top: 10px;
+color: antiquewhite;
+}
+
+</style>
+</head>
+
+<body>
+<div class="container">
+<div class="hus">
+<div class="lysTekst" id="lysPåAv">Lyset er av</div>
+<div id="myLightbulb" class="lightBulb"></div>
+<div class="underBulb"></div>
+<button id="myButton" onclick="changeLight('yellow')">Påknapp</button>
+</div>
+</div>
+
+<script>
+var bulbDiv = document.getElementById('myLightbulb');
+var isYellow = false;  //kan også være tom
+
+function changeLight(color) {
+if(isYellow === true){
+bulbDiv.style.backgroundColor = 'whitesmoke';
+lysPåAv.textContent = 'Lyset er av';
+}
+else {
+bulbDiv.style.backgroundColor = 'yellow';
+lysPåAv.textContent = 'Lyset er på';
+}
+isYellow = !isYellow;    //!isYellow brukes for å returnere tilstanden. Så den bytter farge for hvert klikk.
+}
+
+
+</script>
+</body>
+</html>
+
